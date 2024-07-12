@@ -14,9 +14,9 @@ import { prepareTransaction } from '../../shared/transaction-utils';
 import { ActionGetResponse, ActionPostRequest, ActionPostResponse } from '@solana/actions';
 
 const DONATION_DESTINATION_WALLET =
-  '3h4AtoLTh3bWwaLhdtgQtcC3a3Tokb8NJbtqR9rhp7p6';
-const DONATION_AMOUNT_SOL_OPTIONS = [1, 5, 10];
-const DEFAULT_DONATION_AMOUNT_SOL = 1;
+  'HXtBm8XZbxaTt41uqaKhwUAa6Z1aPyvJdsZVENiWsetg';
+const DONATION_AMOUNT_SOL_OPTIONS = [0.001, 5, 10];
+const DEFAULT_DONATION_AMOUNT_SOL = 0.001;
 
 const app = new OpenAPIHono();
 
