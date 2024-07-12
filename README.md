@@ -1,36 +1,56 @@
-# @dialectlabs/actions
+# dialectlabs-actions
+Forked from [@dialectlabs/actions](https://github.com/dialectlabs/actions).
 
-This repository contains reference implementations of Solana Actions using [Hono](https://hono.dev/).
+This code is experimeantal purpose.
 
-## Getting Started
+## Presets
+Replace wallet in examples/donate/route.ts
 
-First, run the development server:
-```bash
-npm install
+```
+const DONATION_DESTINATION_WALLET =
+  'HXtBm8XZbxaTt41uqaKhwUAa6Z1aPyvJdsZVENiWsetg';
+```
+
+Please use Devnet network in your wallet settings.
+
+## Starting Server
+```
+npm i
 npm run dev
 ```
 
-## Presets
-### Tensor Buy Floor
-* Place your api key to `TENSOR_API_KEY` constant in tensor-api.ts
+## Testing Blinks
+### [/api/minimal-example](https://github.com/Superteam-Japan/dialectlabs-actions/blob/main/docs/minimal-example.png?raw=true)
+
+![minimal example](https://github.com/256hax/dialectlabs-actions/blob/main/docs/minimal-example.png?raw=true)
+
+### [/api/donate](https://github.com/Superteam-Japan/dialectlabs-actions/blob/main/docs/donate.png?raw=true)
+
+![donate](https://github.com/256hax/dialectlabs-actions/blob/main/docs/donate.png?raw=true)
 
 ## How To
 
 ### Actions Development
 
-1. See [Jupiter Swap Action example](examples/jupiter-swap/route.ts)
-2. Build your own action 
+1. See [Minimal Action example](examples/minimal-example/route.ts)
+2. See [Donate Action example](examples/donate/route.ts)
+3. Build your own action 
    * Use specified openapi `responses` from [openapi.ts](examples/openapi.ts) for your POST, GET methods
    * Use specified openapi `body` from [openapi.ts](examples/openapi.ts) for your POST methods
-3. Add your router to [index.ts](examples/index.ts)
+4. Add your router to [index.ts](examples/index.ts)
 
 ### Swagger UI
 Open [http://localhost:3000/swagger-ui](http://localhost:3000/swagger-ui) with your browser to explore actions.
 
 ### Unfurl action into a Blink
 To check and unfurl your or existing action open 
+
+### Mainnet
 [https://actions.dialect.to/](https://actions.dialect.to/)  
 e.g action for swap on Jupiter: <localhost:3000/api/jupiter/swap/SOL-Bonk>
+
+### Devnet
+[https://dial.to/devnet/](https://dial.to/devnet/)  
 
 ## Learn More
 To learn more about Hono, take a look at the following resources:
