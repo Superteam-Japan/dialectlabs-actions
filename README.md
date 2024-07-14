@@ -20,13 +20,13 @@ npm run dev
 ```
 
 ## Testing Blinks
-### [/api/minimal-example](https://github.com/Superteam-Japan/dialectlabs-actions/blob/main/docs/minimal-example.png?raw=true)
+### [examples/minimal-example/route.ts](https://github.com/Superteam-Japan/dialectlabs-actions/blob/main/examples/minimal-example/route.ts)
 
-![minimal example](https://github.com/256hax/dialectlabs-actions/blob/main/docs/minimal-example.png?raw=true)
+![minimal example](https://raw.githubusercontent.com/Superteam-Japan/dialectlabs-actions/main/docs/minimal-example.png)
 
-### [/api/donate](https://github.com/Superteam-Japan/dialectlabs-actions/blob/main/docs/donate.png?raw=true)
+### [examples/donate/route.ts](https://github.com/Superteam-Japan/dialectlabs-actions/blob/main/examples/donate/route.ts)
 
-![donate](https://github.com/256hax/dialectlabs-actions/blob/main/docs/donate.png?raw=true)
+![donate](https://raw.githubusercontent.com/Superteam-Japan/dialectlabs-actions/main/docs/donate.png)
 
 ## How To
 
