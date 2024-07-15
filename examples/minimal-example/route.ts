@@ -67,7 +67,7 @@ app.openapi(
   createRoute({
     method: 'post',
     path: '/{amount}',
-    tags: ['MyActions'],
+    tags: ['MinimalExample'],
     request: {
       params: z.object({
         amount: z
