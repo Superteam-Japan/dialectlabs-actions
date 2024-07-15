@@ -43,13 +43,13 @@ app.openapi(
       },
     };
 
-    console.log("response: %o", response)
+    console.log("response => %o", response)
 
     return c.json(response, 200);
   },
 );
 /*
-response: {
+response => {
   icon: 'https://fastly.picsum.photos/id/859/800/800.jpg?hmac=JccY8q4fczSKugjJr2mZvjhqsTd4vsqTfQfHwKE1k5Y',
   label: '0.0001 SOL',
   title: 'Minimal Example',
@@ -101,47 +101,47 @@ app.openapi(
       transaction: Buffer.from(transaction.serialize()).toString('base64'),
     };
 
-    console.log("response: %o", response)
+    console.log('account =>', account)
+    console.log('DONATION_DESTINATION_WALLET =>', DONATION_DESTINATION_WALLET)
+    console.log('transation =>', transaction)
+    console.log("response => %o", response)
 
     return c.json(response, 200);
   },
 );
 /*
-instructions: [
-  TransactionInstruction {
-    keys: [
-      {
-        pubkey: PublicKey [PublicKey(HXtBm8XZbxaTt41uqaKhwUAa6Z1aPyvJdsZVENiWsetg)] {
-          _bn: <BN: f5a44a6f36839611711f04149f51dd406dd4bc52cb86f20dd2b11608a62c7ee9>,
-          [Symbol(Symbol.toStringTag)]: [Getter]
-        },
-        isSigner: true,
-        isWritable: true
-      },
-      {
-        pubkey: PublicKey [PublicKey(HXtBm8XZbxaTt41uqaKhwUAa6Z1aPyvJdsZVENiWsetg)] {
-          _bn: <BN: f5a44a6f36839611711f04149f51dd406dd4bc52cb86f20dd2b11608a62c7ee9>,
-          [Symbol(Symbol.toStringTag)]: [Getter]
-        },
-        isSigner: false,
-        isWritable: true
-      },
-      [length]: 2
-    ],
-    programId: PublicKey [PublicKey(11111111111111111111111111111111)] {
-      _bn: <BN: 0>,
-      [Symbol(Symbol.toStringTag)]: [Getter]
+account => 55AfqEL3TC9mpkDZ63UCgDrzPcMQd5aZtDegfQCWQ5tK
+DONATION_DESTINATION_WALLET => HXtBm8XZbxaTt41uqaKhwUAa6Z1aPyvJdsZVENiWsetg
+transation => VersionedTransaction {
+  signatures: [
+    Uint8Array(64) [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0
+    ]
+  ],
+  message: MessageV0 {
+    header: {
+      numRequiredSignatures: 1,
+      numReadonlySignedAccounts: 0,
+      numReadonlyUnsignedAccounts: 1
     },
-    data: <Buffer 02 00 00 00 a0 86 01 00 00 00 00 00>
-  },
-  [length]: 1
-]
-
-response: {
-  transaction: 'AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQABAvWkSm82g5YRcR8EFJ9R3UBt1LxSy4byDdKxFgimLH7pAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATUAXHqzj7pvEILsJwKGglKlwH31cADBCxyorqiiCXCQEBAgAADAIAAACghgEAAAAAAAA='
+    staticAccountKeys: [
+      [PublicKey [PublicKey(55AfqEL3TC9mpkDZ63UCgDrzPcMQd5aZtDegfQCWQ5tK)]],
+      [PublicKey [PublicKey(HXtBm8XZbxaTt41uqaKhwUAa6Z1aPyvJdsZVENiWsetg)]],
+      [PublicKey [PublicKey(11111111111111111111111111111111)]]
+    ],
+    recentBlockhash: 'H2Ki95WcbyaW7ogzTamDfH74tgrDXNN22DutMjqqe4j5',
+    compiledInstructions: [ [Object] ],
+    addressTableLookups: []
+  }
 }
-
-https://explorer.solana.com/tx/3x29irKw8WTwZR4MP7iqD8WReCpcVhcudBA1QyZuY34HA47WQhUv5zDAmcxZvRsEBWSHaWPJtWS155BZrgMLuoC4?cluster=devnet
+response => {
+  transaction: 'AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQABAzyAARk1a4RUvpcb/FKI4TmPpdC7CzOxW+IJoT9QtNI49aRKbzaDlhFxHwQUn1HdQG3UvFLLhvIN0rEWCKYsfukAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO4Rue7fkUAJzRRgKQ3CGFu0UBAi8hxHstTVG6RDA5U8AQICAAEMAgAAAKCGAQAAAAAAAA=='
+}
 */
 
 function getMetadata(): Pick<
@@ -169,9 +169,40 @@ async function prepareMyTransaction(
     }),
   ];
 
-  console.log("post, /{amount}, instructions: %o", instructions)
+  console.log("instructions => %o", instructions)
 
   return prepareTransaction(instructions, payer);
 }
+/*
+instructions => [
+  TransactionInstruction {
+    keys: [
+      {
+        pubkey: PublicKey [PublicKey(55AfqEL3TC9mpkDZ63UCgDrzPcMQd5aZtDegfQCWQ5tK)] {
+          _bn: <BN: 3c800119356b8454be971bfc5288e1398fa5d0bb0b33b15be209a13f50b4d238>,
+          [Symbol(Symbol.toStringTag)]: [Getter]
+        },
+        isSigner: true,
+        isWritable: true
+      },
+      {
+        pubkey: PublicKey [PublicKey(HXtBm8XZbxaTt41uqaKhwUAa6Z1aPyvJdsZVENiWsetg)] {
+          _bn: <BN: f5a44a6f36839611711f04149f51dd406dd4bc52cb86f20dd2b11608a62c7ee9>,
+          [Symbol(Symbol.toStringTag)]: [Getter]
+        },
+        isSigner: false,
+        isWritable: true
+      },
+      [length]: 2
+    ],
+    programId: PublicKey [PublicKey(11111111111111111111111111111111)] {
+      _bn: <BN: 0>,
+      [Symbol(Symbol.toStringTag)]: [Getter]
+    },
+    data: <Buffer 02 00 00 00 a0 86 01 00 00 00 00 00>
+  },
+  [length]: 1
+]
+*/
 
 export default app;
